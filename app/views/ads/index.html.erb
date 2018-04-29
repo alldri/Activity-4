@@ -1,0 +1,47 @@
+<style>
+#ads {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#ads td, #ads th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#ads tr:nth-child(even){background-color: #f2f2f2;}
+
+#ads tr:hover {background-color: #ddd;}
+
+#ads th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<table id= "ads">
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Actions</th>
+	</tr>
+	<% @all_ads.each do |one_ad| %>
+	<tr>
+		<td><%= one_ad.id %></td>
+		<td><%= one_ad.name %></td>
+		<td><%= one_ad.price %></td>
+		<td><a href="http://localhost:3000/ads/<%= one_ad.id%>">Show</a>
+			<a href="http://localhost:3000/ads/<%= one_ad.id%>/delete">Delete</a>
+			<a href="http://localhost:3000/ads/<%= one_ad.id%>/edit">Edit</a>
+		</td>
+	</tr>
+   <% end %>
+</table>
+
+<br>
+
+<a href="http://localhost:3000/ads/new">Create New Ad</a>
